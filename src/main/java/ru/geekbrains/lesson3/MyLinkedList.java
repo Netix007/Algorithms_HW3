@@ -64,5 +64,22 @@ public class MyLinkedList {
 
     }
 
+    public void revert(){
+        if (head != null && head.getNext() != null){
+            Node temp = head;
+            revert(head.getNext(), head);
+            temp.setNext(null);
+        }
+    }
+
+    private void revert(Node currentNode, Node previousNode){
+        if (currentNode.getNext() == null){
+            head = currentNode;
+        } else {
+            revert(currentNode.getNext(), currentNode);
+        }
+        currentNode.setNext(previousNode);
+    }
+
 
 }

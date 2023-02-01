@@ -5,6 +5,14 @@ public class MyLinkedListV2 {
     private NodeV2 head;
     private NodeV2 tail;
 
+    public NodeV2 getHead() {
+        return head;
+    }
+
+    public NodeV2 getTail() {
+        return tail;
+    }
+
     public void addFirst(int value){
         NodeV2 node = new NodeV2(value);
         if (head != null){
@@ -30,9 +38,17 @@ public class MyLinkedListV2 {
             tail = null;
         }
 
-
     }
 
-
+    public void addLast(int value){
+        NodeV2 node = new NodeV2(value);
+        if (head == null){
+            head = node;
+        }
+        else {
+            tail.setNext(node);
+        }
+        tail = node;
+    }
 
 }
